@@ -5,32 +5,34 @@
 class Fcp < Formula
   desc "Copy data from/to farcaster and the local filesystem"
   homepage "https://github.com/vrypan/fcp"
-  version "0.9.5"
+  version "0.9.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/vrypan/fcp/releases/download/v0.9.5/fcp_Darwin_x86_64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v0.9.6/fcp_Darwin_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "d2d57bd27ab0cb2c71e7519a7785fd7b4809967c5875f468f1051d0510bfc979"
+      sha256 "603a1856aaa5c877b7323e277b62c52d1cdda4c0a7b2589f86058dca8e4f3102"
 
       def install
         bin.install "fcp"
+        bin.install "fcp-inspect"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/vrypan/fcp/releases/download/v0.9.5/fcp_Darwin_arm64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v0.9.6/fcp_Darwin_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "b4bcd6950f39e169eb2b3580c68a0e90860a37d7cd3251940b632ea9fca78314"
+      sha256 "da54e93482fe8c96e2553210ab27eda705e5c12c870b38a744182c7f24f21a62"
 
       def install
         bin.install "fcp"
+        bin.install "fcp-inspect"
       end
     end
   end
@@ -38,29 +40,31 @@ class Fcp < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/vrypan/fcp/releases/download/v0.9.5/fcp_Linux_x86_64.tar.gz",
+        url "https://github.com/vrypan/fcp/releases/download/v0.9.6/fcp_Linux_x86_64.tar.gz",
           headers: [
             "Accept: application/octet-stream",
             "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
           ]
-        sha256 "20b4a33f1e3a5719270e12c5f5e702db2797f0cf163ef9da3ff5185e5ce19afc"
+        sha256 "35bf17019f711fe688e8d65589d44109b48eb65465e9df268ac0057db000eb18"
 
         def install
           bin.install "fcp"
+          bin.install "fcp-inspect"
         end
       end
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/vrypan/fcp/releases/download/v0.9.5/fcp_Linux_arm64.tar.gz",
+        url "https://github.com/vrypan/fcp/releases/download/v0.9.6/fcp_Linux_arm64.tar.gz",
           headers: [
             "Accept: application/octet-stream",
             "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
           ]
-        sha256 "6faa388720416742fb90f0228056933237214cd5e39e01d93d0fad0097b3e71d"
+        sha256 "5c07d95aa00a62b0be11f923eeb51afab0050ae735293839945f35f54efce5e9"
 
         def install
           bin.install "fcp"
+          bin.install "fcp-inspect"
         end
       end
     end
@@ -68,11 +72,14 @@ class Fcp < Formula
 
   def caveats
     <<~EOS
-      fcp --help
+      Both binaries have been installed:
+        - fcp → `fcp --help`
+        - fcp-inspect → `fcp-inspect --help`
     EOS
   end
 
   test do
-    system "#{bin}/fcp version"
+    system "#{bin}/fcp --version"
+    system "#{bin}/fcp-inspect --version"
   end
 end
