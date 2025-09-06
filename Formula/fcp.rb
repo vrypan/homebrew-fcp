@@ -5,17 +5,17 @@
 class Fcp < Formula
   desc "Copy data from/to farcaster and the local filesystem"
   homepage "https://github.com/vrypan/fcp"
-  version "1.0.1"
+  version "1.0.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/vrypan/fcp/releases/download/v1.0.1/fcp_Darwin_x86_64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v1.0.2/fcp_Darwin_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "44a28961913f1d04395c09f99cddac3c7cced21d0a03a4ef9944490eafb89fb3"
+      sha256 "7208b7f77bd346fc6c2f34e284c521c0fc09ed10adf4be84d465e534fada4b94"
 
       def install
         bin.install "fcp"
@@ -23,12 +23,12 @@ class Fcp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/vrypan/fcp/releases/download/v1.0.1/fcp_Darwin_arm64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v1.0.2/fcp_Darwin_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "793e2539781670b8e45795a979de238fa60212c8869140664ed9e7a7ea164e77"
+      sha256 "9fea7a17fd4a5c90ed32b6e0aff918bef917f97dedd63134922732d9bfd123bd"
 
       def install
         bin.install "fcp"
@@ -39,24 +39,24 @@ class Fcp < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/vrypan/fcp/releases/download/v1.0.1/fcp_Linux_x86_64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v1.0.2/fcp_Linux_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "eb44c1829ae592d0e7b426670c35fe2150b11b3307907e9a45437e1ecd217fd4"
+      sha256 "42497d200b5b40fedca61002095ccf5dffae44c58043d562608e1cec6c3c0d52"
       def install
         bin.install "fcp"
         bin.install "fcp-inspect"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/vrypan/fcp/releases/download/v1.0.1/fcp_Linux_arm64.tar.gz",
+      url "https://github.com/vrypan/fcp/releases/download/v1.0.2/fcp_Linux_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["HOMEBREW_GITHUB_API_TOKEN"]}"
         ]
-      sha256 "796835138f29a9b9a84fe1605706560f0a6f3bede657c4da6c71135ca8e3b3f2"
+      sha256 "872c8aeda2a19ff79bee78c85b31441b5a7f4d49e19f3b772b5fd249305d6c14"
       def install
         bin.install "fcp"
         bin.install "fcp-inspect"
